@@ -5,7 +5,7 @@ import { Filter } from 'lucide-react-native';
 import TransactionCard from '@/components/TransactionCard';
 import { getTransactionHistory } from '@/utils/mockData';
 
-// Transaction görnüşini kesgitlemek
+// Transaction görnüşi
 interface Transaction {
   id: string;
   amount: number;
@@ -19,11 +19,10 @@ export default function HistoryScreen() {
   const transactions: Transaction[] = getTransactionHistory();
 
   const months = [
-    'Ählisi', 'Ýan', 'Few', 'Mar', 'Apr', 'Maý', 'Iýn',
-    'Iýl', 'Awg', 'Sen', 'Okt', 'Noý', 'Dek'
+    'Ählisi', 'Ýan', 'Few', 'Mar', 'Apr', 'Maý', 'Iýun',
+    'Iýul', 'Awg', 'Sep', 'Okt', 'Noý', 'Dek'
   ];
 
-  // Amal ýazgylaryny aý boýunça süzmek
   const filteredTransactions = month === 'Ählisi'
     ? transactions
     : transactions.filter(transaction => {
@@ -33,6 +32,7 @@ export default function HistoryScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      
       {/* Başlyk */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Töleg taryhy</Text>
@@ -41,26 +41,28 @@ export default function HistoryScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Aý saýlamak bölümi */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.monthSelector}
-      >
-        {months.map((m) => (
-          <TouchableOpacity
-            key={m}
-            style={[styles.monthItem, month === m && styles.selectedMonth]}
-            onPress={() => setMonth(m)}
-          >
-            <Text style={[styles.monthText, month === m && styles.selectedMonthText]}>
-              {m}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      {/* Aýlar saýlawy */}
+      <View style={styles.monthSelectorWrapper}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.monthSelector}
+        >
+          {months.map((m) => (
+            <TouchableOpacity
+              key={m}
+              style={[styles.monthItem, month === m && styles.selectedMonth]}
+              onPress={() => setMonth(m)}
+            >
+              <Text style={[styles.monthText, month === m && styles.selectedMonthText]}>
+                {m}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
 
-      {/* Amal ýazgylary sanawy */}
+      {/* Tölegler sanawy */}
       <ScrollView 
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -76,7 +78,7 @@ export default function HistoryScreen() {
           ))
         ) : (
           <View style={styles.emptyState}>
-            <Text style={styles.emptyStateText}>Hiç hili amal tapylmady</Text>
+            <Text style={styles.emptyStateText}>Maglumat tapylmady</Text>
           </View>
         )}
       </ScrollView>
@@ -112,24 +114,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  monthSelector: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+  monthSelectorWrapper: {
     backgroundColor: '#ffffff',
     borderBottomWidth: 1,
     borderBottomColor: '#e0e5e9',
+    paddingVertical: 8,
+  },
+  monthSelector: {
+    paddingHorizontal: 8,
   },
   monthItem: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    paddingVertical: 6,
+    paddingHorizontal: 14,
     borderRadius: 16,
-    marginRight: 8,
-    backgroundColor: '#f5f7f9',
+    marginHorizontal: 4,
+    backgroundColor: '#f0f2f5',
   },
   selectedMonth: {
-    backgroundColor: '#edf5fd',
+    backgroundColor: '#d6eaff',
   },
   monthText: {
+    fontSize: 14,
     fontWeight: '600',
     color: '#7f8c8d',
   },
@@ -141,6 +146,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 16,
+    paddingBottom: 32,
   },
   emptyState: {
     flex: 1,
