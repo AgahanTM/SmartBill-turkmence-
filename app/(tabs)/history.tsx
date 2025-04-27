@@ -1,40 +1,54 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { getTransactionHistory } from '@/utils/mockData';
-import TransactionCard from '@/components/TransactionCard';
 import { Filter } from 'lucide-react-native';
+import TransactionCard from '@/components/TransactionCard';
+import { getTransactionHistory } from '@/utils/mockData';
+
+// Transaction görnüşini kesgitlemek
+interface Transaction {
+  id: string;
+  amount: number;
+  date: string;
+  description: string;
+  type: string;
+}
 
 export default function HistoryScreen() {
-  const [month, setMonth] = useState('Hemmesi');
-  const transactions = getTransactionHistory();
-  
-  const months = ['Hemmesi', 'Ýan', 'Few', 'Mart', 'Aprel', 'Maý', 'Iýun', 'Iýul', 'Awg', 'Sent', 'Okt', 'Noý', 'Dek'];
-  
-  // Filter transactions by month if a specific month is selected
-  const filteredTransactions = month === 'Hemmesi' 
-    ? transactions 
+  const [month, setMonth] = useState<string>('Ählisi');
+  const transactions: Transaction[] = getTransactionHistory();
+
+  const months = [
+    'Ählisi', 'Ýan', 'Few', 'Mar', 'Apr', 'Maý', 'Iýn',
+    'Iýl', 'Awg', 'Sen', 'Okt', 'Noý', 'Dek'
+  ];
+
+  // Amal ýazgylaryny aý boýunça süzmek
+  const filteredTransactions = month === 'Ählisi'
+    ? transactions
     : transactions.filter(transaction => {
         const transactionMonth = new Date(transaction.date).toLocaleString('default', { month: 'short' });
         return transactionMonth === month;
       });
-  
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      {/* Başlyk */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Töleg taryhy</Text>
         <TouchableOpacity style={styles.filterButton}>
           <Filter size={20} color="#2c3e50" />
         </TouchableOpacity>
       </View>
-      
+
+      {/* Aý saýlamak bölümi */}
       <ScrollView 
         horizontal 
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.monthSelector}
       >
         {months.map((m) => (
-          <TouchableOpacity 
+          <TouchableOpacity
             key={m}
             style={[styles.monthItem, month === m && styles.selectedMonth]}
             onPress={() => setMonth(m)}
@@ -45,25 +59,24 @@ export default function HistoryScreen() {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      
+
+      {/* Amal ýazgylary sanawy */}
       <ScrollView 
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
         {filteredTransactions.length > 0 ? (
-          <>
-            {filteredTransactions.map((transaction, index) => (
-              <TransactionCard
-                key={transaction.id}
-                transaction={transaction}
-                isLast={index === filteredTransactions.length - 1}
-              />
-            ))}
-          </>
+          filteredTransactions.map((transaction, index) => (
+            <TransactionCard
+              key={transaction.id}
+              transaction={transaction}
+              isLast={index === filteredTransactions.length - 1}
+            />
+          ))
         ) : (
           <View style={styles.emptyState}>
-            <Text style={styles.emptyStateText}>Geleşik tapylmady</Text>
+            <Text style={styles.emptyStateText}>Hiç hili amal tapylmady</Text>
           </View>
         )}
       </ScrollView>
@@ -111,6 +124,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 16,
     marginRight: 8,
+    backgroundColor: '#f5f7f9',
   },
   selectedMonth: {
     backgroundColor: '#edf5fd',
