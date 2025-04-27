@@ -29,7 +29,7 @@ export default function BillCard({ bill, onPress }: BillCardProps) {
               styles.statusText,
               bill.isPaid ? styles.paidText : isOverdue ? styles.overdueText : styles.dueText
             ]}>
-              {bill.isPaid ? 'Paid' : isOverdue ? 'Overdue' : 'Due'}
+              {bill.isPaid ? 'tölenen' : isOverdue ? 'geçmiş' : 'tölenmeli'}
             </Text>
           </View>
         </View>
@@ -37,8 +37,8 @@ export default function BillCard({ bill, onPress }: BillCardProps) {
         <Text style={styles.billId}>Bill #{bill.id.substring(0, 8)}</Text>
         
         <View style={styles.billFooter}>
-          <Text style={styles.amount}>TMT{bill.amount.toFixed(2)}</Text>
-          <Text style={styles.dueDate}>{bill.isPaid ? 'Paid on' : 'Due'}: {bill.dueDate}</Text>
+          <Text style={styles.amount}>TMT {bill.amount.toFixed(2)}</Text>
+          <Text style={styles.dueDate}>{bill.isPaid ? 'Tölenen wagty' : 'Bermeli wagty'}: {bill.dueDate}</Text>
         </View>
       </View>
     </TouchableOpacity>

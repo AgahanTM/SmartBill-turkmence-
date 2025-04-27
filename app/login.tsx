@@ -49,7 +49,7 @@ export default function Login() {
               source={{ uri: 'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=400' }} 
               style={styles.logo}
             />
-            <Text style={styles.logoText}>UtilityPay</Text>
+            <Text style={styles.logoText}>SmartBill</Text>
           </View>
           
           <View style={styles.formContainer}>

@@ -23,7 +23,7 @@ export default function UpcomingBillCard({ bill, onPress }: UpcomingBillCardProp
       
       <View style={styles.amountContainer}>
         <Text style={styles.amount}>{bill.amount.toFixed(2)} TMT</Text>
-        <Text style={styles.dueDate}>Ödänmeli: {bill.dueDate}</Text>
+        <Text style={styles.dueDate}>Ödenmeli: {bill.dueDate}</Text>
       </View>
     </TouchableOpacity>
   );

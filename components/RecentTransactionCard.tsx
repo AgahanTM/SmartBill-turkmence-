@@ -18,7 +18,7 @@ export default function RecentTransactionCard({ transaction }: RecentTransaction
         <Text style={styles.transactionDate}>{transaction.date}</Text>
       </View>
       
-      <Text style={styles.amount}>-TMT{transaction.amount.toFixed(2)}</Text>
+      <Text style={styles.amount}>-TMT {transaction.amount.toFixed(2)}</Text>
     </View>
   );
 }

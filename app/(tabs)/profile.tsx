@@ -84,7 +84,7 @@ export default function ProfileScreen() {
       >
         <View style={styles.profileCard}>
           <Image 
-            source={{ uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400' }}
+            source={{ uri:'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=400' }}
             style={styles.profileImage}
           />
           <View style={styles.profileInfo}>

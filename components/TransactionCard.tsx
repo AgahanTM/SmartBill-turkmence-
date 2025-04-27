@@ -40,7 +40,7 @@ export default function TransactionCard({ transaction, isLast = false }: Transac
           <Text style={styles.amount}>-{transaction.amount.toFixed(2)} TMT</Text>
           <TouchableOpacity style={styles.receiptButton}>
             <Download size={14} color="#3498db" />
-            <Text style={styles.receiptText}>Reçedi alyş</Text>
+            <Text style={styles.receiptText}>Reçedi al</Text>
           </TouchableOpacity>
         </View>
       </View>

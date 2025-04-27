@@ -96,7 +96,7 @@ export default function UsageGraph({ data, title, color = '#3498db' }: UsageGrap
             size: 12,
           },
           color: '#7f8c8d',
-          callback: (value: number) => `$${value}`,
+          callback: (value: number) => `TMT${value}`,
         },
       },
     },

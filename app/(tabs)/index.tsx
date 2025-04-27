@@ -25,14 +25,14 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
       >
         <AlertBanner 
-          message="Siziň elektrik tölegiňiz 3 günüň içinde berjaý edilýär" 
+          message="Siziň elektrik tölegiňiz 3 günüň içinde ödenmeli " 
           type="warning"
         />
         
         {/* Hasap Summary (Güneş Energiýasy) */}
         <View style={styles.summaryCard}>
           <Text style={styles.summaryTitle}>Jemi Töleg</Text>
-          <Text style={styles.summaryAmount}>$284.55</Text>
+          <Text style={styles.summaryAmount}>TMT 284.55</Text>
           <Text style={styles.summarySubtext}>3 utility tölegleriniň jemi</Text>
           <TouchableOpacity 
             style={styles.viewAllButton}
@@ -74,7 +74,7 @@ export default function HomeScreen() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Geljekdäki Tölegler</Text>
             <TouchableOpacity onPress={() => router.push('/bills')}>
-              <Text style={styles.seeAllText}>Bütin Tölegleri Görüp Bilmek</Text>
+              <Text style={styles.seeAllText}>Bütin Tölegleri Gör</Text>
             </TouchableOpacity>
           </View>
           
@@ -92,7 +92,7 @@ export default function HomeScreen() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Täze Amallar</Text>
             <TouchableOpacity onPress={() => router.push('/history')}>
-              <Text style={styles.seeAllText}>Bütin Täze Amallary Görüp Bilmek</Text>
+              <Text style={styles.seeAllText}>Bütin Täze Amallary Gör</Text>
             </TouchableOpacity>
           </View>
           

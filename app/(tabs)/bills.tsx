@@ -7,13 +7,13 @@ import { getBills } from '@/utils/mockData';
 import { Filter } from 'lucide-react-native';
 
 export default function BillsScreen() {
-  const [filter, setFilter] = useState('all'); // 'all' - hemmesi, 'due' - tölenmeli, 'paid' - tölenen
+  const [filter, setFilter] = useState('hemmesi'); // 'all' - hemmesi, 'due' - tölenmeli, 'paid' - tölenen
   const allBills = getBills();
   
   const filteredBills = allBills.filter(bill => {
-    if (filter === 'all') return true;
-    if (filter === 'due') return !bill.isPaid;
-    if (filter === 'paid') return bill.isPaid;
+    if (filter === 'hemmesi') return true;
+    if (filter === 'tölenmeli') return !bill.isPaid;
+    if (filter === 'tölenen') return bill.isPaid;
     return true;
   });
   
@@ -28,26 +28,26 @@ export default function BillsScreen() {
       
       <View style={styles.filterTabs}>
         <TouchableOpacity 
-          style={[styles.filterTab, filter === 'all' && styles.activeFilterTab]}
-          onPress={() => setFilter('all')}
+          style={[styles.filterTab, filter === 'hemmesi' && styles.activeFilterTab]}
+          onPress={() => setFilter('hemmesi')}
         >
-          <Text style={[styles.filterTabText, filter === 'all' && styles.activeFilterText]}>
+          <Text style={[styles.filterTabText, filter === 'hemmesi' && styles.activeFilterText]}>
             Hemmesi {/* "All" -> "Hemmesi" */}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity 
-          style={[styles.filterTab, filter === 'due' && styles.activeFilterTab]}
-          onPress={() => setFilter('due')}
+          style={[styles.filterTab, filter === 'tölenmeli' && styles.activeFilterTab]}
+          onPress={() => setFilter('tölenmeli')}
         >
-          <Text style={[styles.filterTabText, filter === 'due' && styles.activeFilterText]}>
+          <Text style={[styles.filterTabText, filter === 'tölenmeli' && styles.activeFilterText]}>
             Tölenmeli {/* "Due" -> "Tölenmeli" */}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity 
-          style={[styles.filterTab, filter === 'paid' && styles.activeFilterTab]}
-          onPress={() => setFilter('paid')}
+          style={[styles.filterTab, filter === 'tölenen' && styles.activeFilterTab]}
+          onPress={() => setFilter('tölenen')}
         >
-          <Text style={[styles.filterTabText, filter === 'paid' && styles.activeFilterText]}>
+          <Text style={[styles.filterTabText, filter === 'tölenen' && styles.activeFilterText]}>
             Tölenenler {/* "Paid" -> "Tölenenler" */}
           </Text>
         </TouchableOpacity>

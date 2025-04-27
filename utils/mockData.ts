@@ -22,7 +22,7 @@ export type Transaction = {
 // Töleg hasaplary üçin nusga maglumatlar
 const bills: Bill[] = [
   {
-    id: 'bill-1',
+    id: '1',
     utility: 'Elektrik',
     accountNumber: 'ELEC-10234568',
     amount: 87.45,
@@ -33,7 +33,7 @@ const bills: Bill[] = [
     iconBgColor: '#f39c12',
   },
   {
-    id: 'bill-2',
+    id: '2',
     utility: 'Suw',
     accountNumber: 'WAT-78945612',
     amount: 43.20,
@@ -44,7 +44,7 @@ const bills: Bill[] = [
     iconBgColor: '#3498db',
   },
   {
-    id: 'bill-3',
+    id: '3',
     utility: 'Gaz',
     accountNumber: 'GAS-45678912',
     amount: 153.90,
@@ -55,7 +55,7 @@ const bills: Bill[] = [
     iconBgColor: '#e74c3c',
   },
   {
-    id: 'bill-4',
+    id: '4',
     utility: 'Internet',
     accountNumber: 'INT-36985214',
     amount: 79.99,
@@ -66,7 +66,7 @@ const bills: Bill[] = [
     iconBgColor: '#9b59b6',
   },
   {
-    id: 'bill-5',
+    id: '5',
     utility: 'Elektrik',
     accountNumber: 'ELEC-10234568',
     amount: 92.34,

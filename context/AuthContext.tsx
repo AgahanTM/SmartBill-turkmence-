@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
+
 type User = {
   id: string;
   name: string;
@@ -19,7 +20,7 @@ const defaultUser: User = {
   id: '1',
   name: 'Ezizhan Akmyradov',
   email: 'ezizhanakmyradov@gmail.com',
-  avatar: '@/assets/images/profil.jpg',
+  avatar: 'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=400',
 };
 
 const AuthContext = createContext<AuthContextType>({

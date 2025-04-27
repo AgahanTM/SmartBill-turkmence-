@@ -25,8 +25,8 @@ export function generateReceiptHTML(transaction: Transaction) {
       <body>
         <div class="receipt">
           <div class="header">
-            <div class="logo">UtilityPay</div>
-            <h2>Payment Receipt</h2>
+            <div class="logo">SmartBill</div>
+            <h2>Toleg Bilgileri</h2>
           </div>
           
           <div class="details">
@@ -48,14 +48,14 @@ export function generateReceiptHTML(transaction: Transaction) {
             </div>
             
             <div class="row total">
-              <span><strong>Total Amount:</strong></span>
+              <span><strong>Jemi baha:</strong></span>
               <span><strong>$${transaction.amount.toFixed(2)}</strong></span>
             </div>
           </div>
           
           <div class="footer">
-            <p>Thank you for your payment!</p>
-            <p>For any questions, please contact support@utilitypay.com</p>
+            <p>Sagbolun!</p>
+            <p>Soraglarynyzy su adrese ugradyp bilersiniz support@utilitypay.com</p>
           </div>
         </div>
       </body>

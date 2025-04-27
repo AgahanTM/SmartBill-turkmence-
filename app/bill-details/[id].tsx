@@ -28,16 +28,16 @@ export default function BillDetailsScreen() {
       setBill({
         ...bill,
         isPaid: true,
-        status: 'Paid',
+        status: 'tolenen',
       });
       
       // Create transaction record
       const newTransaction = {
         id: `txn-${Date.now()}`,
-        description: `${bill.utility} Bill Payment`,
+        description: `${bill.utility} Tolemek`,
         amount: bill.amount,
         date: new Date().toISOString(),
-        paymentMethod: 'Credit Card',
+        paymentMethod: 'kredit kart',
       };
       setTransaction(newTransaction);
       setShowSuccessModal(true);
@@ -53,7 +53,7 @@ export default function BillDetailsScreen() {
         >
           <ArrowLeft size={20} color="#2c3e50" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Bill Details</Text>
+        <Text style={styles.headerTitle}>Hasap maglumatlary</Text>
         <View style={styles.backButton} />
       </View>
       
@@ -64,9 +64,9 @@ export default function BillDetailsScreen() {
       >
         {showSuccessModal ? (
           <View style={styles.paymentSuccessCard}>
-            <Text style={styles.paymentSuccessTitle}>Payment Successful!</Text>
+            <Text style={styles.paymentSuccessTitle}>Islem basaryly!</Text>
             <Text style={styles.paymentSuccessText}>
-              Your payment has been processed. Thank you!
+              Sagbolun!
             </Text>
           </View>
         ) : (
@@ -77,7 +77,7 @@ export default function BillDetailsScreen() {
               </View>
               <View style={styles.billHeaderInfo}>
                 <Text style={styles.billTitle}>{bill.utility}</Text>
-                <Text style={styles.billAccount}>Account: {bill.accountNumber}</Text>
+                <Text style={styles.billAccount}>Akkaunt: {bill.accountNumber}</Text>
               </View>
               <View style={[styles.statusBadge, bill.isPaid ? styles.paidBadge : styles.dueBadge]}>
                 <Text style={bill.isPaid ? styles.paidBadgeText : styles.dueBadgeText}>
@@ -87,58 +87,58 @@ export default function BillDetailsScreen() {
             </View>
             
             <View style={styles.amountCard}>
-              <Text style={styles.amountLabel}>Amount Due</Text>
-              <Text style={styles.amountValue}>${bill.amount.toFixed(2)}</Text>
+              <Text style={styles.amountLabel}>Berilmeli mukdar</Text>
+              <Text style={styles.amountValue}>TMT {bill.amount.toFixed(2)}</Text>
               <View style={styles.dateRow}>
                 <Calendar size={16} color="#7f8c8d" />
-                <Text style={styles.dueDate}>Due on {bill.dueDate}</Text>
+                <Text style={styles.dueDate}>Berilmeli {bill.dueDate}</Text>
               </View>
             </View>
             
             <View style={styles.section}>
               <View style={styles.sectionHeader}>
                 <FileText size={18} color="#3498db" />
-                <Text style={styles.sectionTitle}>Bill Summary</Text>
+                <Text style={styles.sectionTitle}>Hasap gysgaça mazmuny</Text>
               </View>
               
               <View style={styles.summaryItem}>
-                <Text style={styles.summaryLabel}>Previous Balance</Text>
-                <Text style={styles.summaryValue}>$0.00</Text>
+                <Text style={styles.summaryLabel}>Öňki</Text>
+                <Text style={styles.summaryValue}>TMT 0.00</Text>
               </View>
               <View style={styles.summaryItem}>
-                <Text style={styles.summaryLabel}>Current Charges</Text>
-                <Text style={styles.summaryValue}>${bill.amount.toFixed(2)}</Text>
+                <Text style={styles.summaryLabel}>Häzirki tölegler</Text>
+                <Text style={styles.summaryValue}>TMT {bill.amount.toFixed(2)}</Text>
               </View>
               <View style={styles.summaryItem}>
-                <Text style={styles.summaryLabel}>Taxes & Fees</Text>
-                <Text style={styles.summaryValue}>$0.00</Text>
+                <Text style={styles.summaryLabel}>Salgytlar we ýygymlar</Text>
+                <Text style={styles.summaryValue}>TMT 0.00</Text>
               </View>
               <View style={[styles.summaryItem, styles.totalItem]}>
-                <Text style={styles.totalLabel}>Total Amount</Text>
-                <Text style={styles.totalValue}>${bill.amount.toFixed(2)}</Text>
+                <Text style={styles.totalLabel}>Jemi mukdar</Text>
+                <Text style={styles.totalValue}>TMT {bill.amount.toFixed(2)}</Text>
               </View>
             </View>
             
             <View style={styles.section}>
               <View style={styles.sectionHeader}>
                 <AlertCircle size={18} color="#3498db" />
-                <Text style={styles.sectionTitle}>Important Information</Text>
+                <Text style={styles.sectionTitle}>Möhüm maglumat</Text>
               </View>
               
               <Text style={styles.infoText}>
-                This is a {bill.utility.toLowerCase()} bill for your service at 123 Main St.
-                The billing period is from {bill.billingPeriod}.
+              Bu, esasy köçäniň 123-nji jaýynda hyzmatyňyz üçin {bill.utility.toLowerCase ()} tölegidir. 
+              Hasaplaşyk möhleti {bill.billingPeriod}.
               </Text>
             </View>
             
             <View style={styles.paymentMethods}>
-              <Text style={styles.paymentMethodsTitle}>Payment Methods</Text>
+              <Text style={styles.paymentMethodsTitle}>Töleg usullary</Text>
               <View style={styles.paymentMethodsGrid}>
                 <TouchableOpacity style={[styles.paymentMethod, styles.selectedPaymentMethod]}>
-                  <Text style={styles.paymentMethodText}>Credit Card</Text>
+                  <Text style={styles.paymentMethodText}>Kredit kart</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.paymentMethod}>
-                  <Text style={styles.paymentMethodText}>Bank Account</Text>
+                  <Text style={styles.paymentMethodText}>Bank hasaby</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.paymentMethod}>
                   <Text style={styles.paymentMethodText}>Apple Pay</Text>
@@ -160,7 +160,7 @@ export default function BillDetailsScreen() {
             disabled={isPaymentProcessing}
           >
             <Text style={styles.payButtonText}>
-              {isPaymentProcessing ? 'Processing...' : `Pay $${bill.amount.toFixed(2)}`}
+              {isPaymentProcessing ? 'Işlenilyar ...' : `Töle TMT ${bill.amount.toFixed(2)}`}
             </Text>
           </TouchableOpacity>
         </View>
