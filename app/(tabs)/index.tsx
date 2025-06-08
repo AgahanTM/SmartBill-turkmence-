@@ -25,7 +25,7 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
       >
         <AlertBanner 
-          message="Siziň elektrik tölegiňiz 3 günüň içinde ödenmeli " 
+          message="Siziň elektrik tölegiňiz 3 günüň içinde tölenmeli" 
           type="warning"
         />
         
@@ -33,12 +33,12 @@ export default function HomeScreen() {
         <View style={styles.summaryCard}>
           <Text style={styles.summaryTitle}>Jemi Töleg</Text>
           <Text style={styles.summaryAmount}>TMT 284.55</Text>
-          <Text style={styles.summarySubtext}>3 utility tölegleriniň jemi</Text>
+          <Text style={styles.summarySubtext}>3 komunal hyzmat tölegleriniň jemi</Text>
           <TouchableOpacity 
             style={styles.viewAllButton}
             onPress={() => router.push('/bills')}
           >
-            <Text style={styles.viewAllButtonText}>Bütin Tölegleri Görüp Bilmek</Text>
+            <Text style={styles.viewAllButtonText}>Bütin Tölegleri Gör</Text>
           </TouchableOpacity>
         </View>
         
@@ -48,12 +48,12 @@ export default function HomeScreen() {
           <View style={styles.quickActions}>
             <QuickActionButton 
               icon={<CreditCard size={24} color="#3498db" />}
-              label="Tölegleri Töhmet"
+              label="Tölemek"
               onPress={() => router.push('/bills')}
             />
             <QuickActionButton 
               icon={<History size={24} color="#3498db" />}
-              label="Taryh"
+              label="Sene"
               onPress={() => router.push('/history')}
             />
             <QuickActionButton 
@@ -63,7 +63,7 @@ export default function HomeScreen() {
             />
             <QuickActionButton 
               icon={<Settings size={24} color="#3498db" />}
-              label="Saýlawlar"
+              label="Sazlamalar"
               onPress={() => router.push('/profile')}
             />
           </View>
@@ -72,9 +72,9 @@ export default function HomeScreen() {
         {/* Geljekdäki Tölegler */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Geljekdäki Tölegler</Text>
+            <Text style={styles.sectionTitle}>Geljekki Tölegler</Text>
             <TouchableOpacity onPress={() => router.push('/bills')}>
-              <Text style={styles.seeAllText}>Bütin Tölegleri Gör</Text>
+              <Text style={styles.seeAllText}>Hemmesini Gör</Text>
             </TouchableOpacity>
           </View>
           
@@ -92,7 +92,7 @@ export default function HomeScreen() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Täze Amallar</Text>
             <TouchableOpacity onPress={() => router.push('/history')}>
-              <Text style={styles.seeAllText}>Bütin Täze Amallary Gör</Text>
+              <Text style={styles.seeAllText}>Hemmesini Gör</Text>
             </TouchableOpacity>
           </View>
           

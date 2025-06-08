@@ -29,7 +29,7 @@ export default function ProfileScreen() {
       items: [
         { id: 'personal', title: 'Şahsy maglumatlar' },
         { id: 'payment', title: 'Töleg usullary' },
-        { id: 'address', title: 'Hesap salgasy' },
+        { id: 'address', title: 'Hasap salgasy' },
       ]
     },
     {
@@ -44,11 +44,11 @@ export default function ProfileScreen() {
     },
     {
       id: 'payment',
-      title: 'Töleg tercihler',
+      title: 'Töleg görnüşleri',
       icon: <CreditCard size={20} color="#3498db" />,
       items: [
-        { id: 'autopay', title: 'Avtomat töleg', isToggle: true },
-        { id: 'reminder', title: 'Töleg hatyratlary' },
+        { id: 'autopay', title: 'Awtomatik töleg', isToggle: true },
+        { id: 'reminder', title: 'Töleg ýatlatmalary' },
       ]
     },
     {
@@ -65,8 +65,8 @@ export default function ProfileScreen() {
       title: 'Ýardam & Goldaw',
       icon: <HelpCircle size={20} color="#3498db" />,
       items: [
-        { id: 'faq', title: 'Tez-tez berilýän soraglar' },
-        { id: 'contact', title: 'Goldaw bilen habarlaş' },
+        { id: 'faq', title: 'Iň köp berilýan berilýän soraglar' },
+        { id: 'contact', title: 'online kömek öçin' },
       ]
     },
   ];
